@@ -10,6 +10,8 @@ const ulEl = document.getElementById('ul-el');
 inputButton.addEventListener('click', function () {
 	// push input value to myLead variable
 	myLeads.push(inputEl.value);
+	// clear out input field
+	inputEl.value = '';
 	renderLeads();
 });
 
@@ -18,7 +20,16 @@ function renderLeads() {
 	let listItems = '';
 	for (let i = 0; i < myLeads.length; i++) {
 		// Add item to the listItems variable
-		listItems += '<li>' + myLeads[i] + '</li>';
+		// Original idea but it was too complicated
+		// listItems += "<li><a target='_blank' href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+		//  Added template literal
+		listItems += `
+		<li>
+			<a target='_blank' href='${myLeads[i]}'>
+				${myLeads[i]}
+			</a>
+		</li>
+	`;
 	}
 	// Render the listItems inside the unordered list
 	ulEl.innerHTML = listItems;

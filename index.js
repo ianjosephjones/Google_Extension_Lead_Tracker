@@ -12,7 +12,12 @@ inputButton.addEventListener('click', function () {
 	myLeads.push(inputEl.value);
 	console.log(myLeads);
 });
-
+// Assign listItems to empty string
+let listItems = '';
 for (let i = 0; i < myLeads.length; i++) {
-	ulEl.innerHTML += '<li>' + myLeads[i] + '</li>';
+	// Add item to the listItems variable
+	listItems += '<li>' + myLeads[i] + '</li>';
+	console.log(listItems);
 }
+// Render the listItems inside the unordered list
+ulEl.innerHTML = listItems;

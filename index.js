@@ -17,20 +17,31 @@ inputButton.addEventListener('click', function () {
 
 function renderLeads() {
 	// Assign listItems to empty string
+	// Add this loop in a forEach
 	let listItems = '';
-	for (let i = 0; i < myLeads.length; i++) {
-		// Add item to the listItems variable
-		// Original idea but it was too complicated
-		// listItems += "<li><a target='_blank' href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
-		//  Added template literal
+	myLeads.forEach((lead) => {
 		listItems += `
 		<li>
-			<a target='_blank' href='${myLeads[i]}'>
-				${myLeads[i]}
+			<a target='_blank' href='${lead}'>
+				${lead}
 			</a>
 		</li>
 	`;
-	}
+	});
+
+	// for (let i = 0; i < myLeads.length; i++) {
+	// 	// Add item to the listItems variable
+	// 	// Original idea but it was too complicated
+	// 	//listItems += "<li><a target='_blank' href='" + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+	// 	//  Added template literal
+	// 	listItems += `
+	// 	<li>
+	// 		<a target='_blank' href='${myLeads[i]}'>
+	// 			${myLeads[i]}
+	// 		</a>
+	// 	</li>
+	// `;
+	// }
 	// Render the listItems inside the unordered list
 	ulEl.innerHTML = listItems;
 }

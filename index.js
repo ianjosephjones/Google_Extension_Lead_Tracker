@@ -12,7 +12,10 @@ inputButton.addEventListener('click', function () {
 	myLeads.push(inputEl.value);
 	// clear out input field
 	inputEl.value = '';
+	// save myLeads to localStorage
+	localStorage.setItem('myLeads', JSON.stringify(myLeads));
 	renderLeads();
+	console.log(localStorage.getItem('myLeads'));
 });
 
 function renderLeads() {
